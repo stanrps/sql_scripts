@@ -1,0 +1,5 @@
+select RAWTOHEX(TRACKING_SRNUMBER), SRNUMBER,MSGSOURCE,FORM,to_char(sr_created_date, 'YYYY-MM-DD HH24.MI.SS') sr_created_date,to_char(sr_updated_date, 'YYYY-MM-DD HH24.MI.SS') sr_updated_date,STATUS,SLAMESSAGE
+from MEDIA311.nyc311_service_request
+where sr_created_date >= to_date('2021-11-24 00:00:00', 'YYYY-MM-DD HH24.MI.SS')
+and sr_created_date <= to_date('2021-11-24 23:59:59', 'YYYY-MM-DD HH24.MI.SS')
+order by sr_created_date desc;
